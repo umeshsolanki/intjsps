@@ -1,0 +1,9 @@
+{"modules":[
+        {"m":"All Branches Consumption","i":0},{"m":"All Branches Stock","i":1},{"m":"All Branches Purchase","i":2},
+        {"m":"All Branches Production","i":3},{"":"U","i":4},{"m":"P","i":5},{"m":"User Activities","i":6},
+        {"m":"Finance Management","i":7},{"m":"Requisitions","i":8},{"m":"Sellers","i":9},{"m":"All Orders","i":10},
+        {"m":"All Complaints","i":11},{"m":"Raw Materials","i":12},{"m":"BOM and Products","i":13},
+        {"m":"Production Branches","i":13},{"m":"CSKU","i":14},{"m":"Report Manager","i":15},{"m":"Referrer","i":16},
+        {"m":"Employee Management","i":17},{"m":"Salary Dist","i":18},{"m":"Tax Manager","i":19},{"m":"Invoice Manager","i":20},
+        {"m":"Employee Management","i":21},{"m":"Salary Dist","i":22},{"m":"Tax Manager","i":23},{"m":"Invoice Manager","i":24}
+        ]}

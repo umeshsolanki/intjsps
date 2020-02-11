@@ -1,0 +1,9 @@
+#slider{overflow: hidden;float:right;width:400px;height:400px;background-color: transparent}
+#slider img{overflow: hidden;}
+
+#pushme{overflow: hidden;margin-left:0px;transition:margin-left 2000ms;}
+#pushme2{float:left;overflow:hidden;margin-top:-400px;transition:margin-left 2000ms;}
+
+/*//margin-left:-400px}*/
+/*//#pushme3{float:left;overflow:hidden;margin-top:-400px;transition:margin-left 2000ms;margin-left:0px}*/
+/*//#pushme4{float:left;overflow:hidden;transition:margin-left 2000ms;margin-left:0px;z-index: -5;}*/

@@ -1,0 +1,4 @@
+.effect {list-style:none;z-index:2;opacity:1; transition: z-index 10000ms,opacity 3000ms;}   
+li{list-style:none;z-index:1;opacity: 0; transition: opacity 3000ms,z-index 10000ms}
+ul li{position:absolute;}
+/*//li{transition: z-index 10000ms,opacity 3000ms; }*/

@@ -1,0 +1,74 @@
+
+.via-p0{
+   padding: 0 !important; 
+}
+
+.via-p2{
+    padding: 2px !important; 
+}
+.via-p5{
+    padding: 5px !important; 
+}
+.via-p10{
+    padding: 10px !important;
+}
+.via-p15{
+    padding: 15px !important; 
+}
+
+.via-m0{
+   margin: 0 !important; 
+}
+
+.via-m2{
+    margin: 2px !important; 
+}
+.via-m5{
+    margin: 5px !important; 
+}
+.via-m10{
+    margin: 10px !important;
+}
+.via-m15{
+    margin: 15px !important; 
+}
+
+.via-link{
+    margin: 10px 10px !important;
+    
+}
+
+.via-uppercase{
+    text-transform: uppercase
+}
+
+.via-capitalize{
+    text-transform: capitalize
+}
+
+.via-bold{
+    font-weight: 700;
+}
+
+.via-Link{
+    font-size:1.5em;
+    
+}
+
+.via-cutText{
+    text-decoration: line-through;
+}
+.via-arrowCursor{
+    cursor: default;
+}
+.via-pointerCursor{
+    cursor: pointer;
+}
+
+.via-bborder{
+    border-bottom: 1px solid #efefef;
+}
+
+.loader:hover{
+    background-color: #00bcd4
+}
