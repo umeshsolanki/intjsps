@@ -4,54 +4,14 @@
     Author     : UMESH-ADMIN
 --%>
 
-<%@page import="entities.Taxes"%>
-<%@page import="entities.Vendor"%>
-<%@page import="entities.InwardManager"%>
-<%@page import="java.util.Date"%>
-<%@page import="utils.Utils"%>
-<%@page import="entities.ProductionBranch"%>
-<%@page import="org.hibernate.criterion.Order"%>
-<%@page import="org.hibernate.criterion.Restrictions"%>
-<%@page import="org.hibernate.Transaction"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="utils.ConnectionString"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="org.json.JSONException"%>
-<%@page import="entities.Admins"%>
-<%@page import="entities.PPControl"%>
-<%@page import="entities.FinishedProduct"%>
-<%@page import="org.json.JSONObject"%>
-<%@page import="org.json.JSONArray"%>
-<%@page import="java.util.List"%>
-<%@page import="entities.Material"%>
-<%@page import="org.hibernate.Session"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-    <%
-        Admins role=(Admins)session.getAttribute("role");
-        if(role==null){
-    %>
-    <script>
-        window.location.replace("?msg=Unauthorized Access, Please Login First");
-    </script>
-<%
-    }else{
-        return;
-    }
-    Session sess=sessionMan.SessionFact.getSessionFact().openSession();
-    List<Material> mat=sess.createCriteria(Material.class).addOrder(Order.asc("matName")).list();
-    List<Vendor> vend=sess.createCriteria(Vendor.class).addOrder(Order.asc("name")).list();
-    JSONArray matArr=new JSONArray(mat);
-    JSONArray vendArr=new JSONArray(vend);
-    List<Taxes> taxes=sess.createCriteria(Taxes.class).list();
-    StringBuilder tax=new StringBuilder();
-    for(Taxes t:taxes){
-        tax.append("<option value='"+t.getTaxId()+"'>"+t.gettName()+"</option>");
-    }
-%>
+
 <div class="loginForm" style="background-color: #333">  
 <script>
-        var matArr=<%=matArr.toString()%>;
-        var vendArr=<%=vendArr.toString()%>;
+        var matArr=${matArr};
+        var vendArr=${vendArr};
         var matCount=0;
         var matIds=[];
         
@@ -69,8 +29,7 @@
                 }
             }
         }
-        var taxes="<%=tax%>";
-        <%tax=null;%>
+        var taxes="${tax}";
         function showTicketBox(mes,id){
             $("#ticketCont").css("display","block");
 //         alert("om");
@@ -173,34 +132,16 @@
         <center>
         <form id="importMaterial" onsubmit="return false;">
             <br><br>
-                <input type="text"  id="action" value="importMaterial" hidden/>
-                <input class="textField" type="date" name="dt" id="purDt" value="<%=Utils.DbFmt.format(new Date())%>" placeholder="Date"/>
-                <%if(role.getBranch()==null){%>
-                <select title="For branch" class="textField" id="purBr"><option>Select Production Branch</option>
-                <%
-                List<ProductionBranch> b=sess.createCriteria(ProductionBranch.class).list();
-                    for(ProductionBranch brr:b){
-                %>
-                <option value="<%=brr.getBrId()%>"><%=brr.getBrName()%></option>
-                <%}%>
-                </select>
-                <%}else{%>
-                <input type="hidden" value="<%=role.getBranch().getBrId()%>" id="purBr"/>
-                <%}%>               
-                <input class="textField" type="text" id="vend"  name="vend" list="rmSel" placeholder="Vendor" autocomplete='off'/><br>
-                <datalist id="rmSel" style="display: none;">
-                    <%
-                    List<String> slrs=sess.createQuery("select distinct(purFrom) from InwardManager where purFrom not in (select distinct(name) from Vendor)").list();
-                    for(String s:slrs){%>
-                        <option value="<%=s%>"/>
-                    <%}
-                    slrs=sess.createQuery("select distinct(name) from Vendor").list();
-                    for(String s:slrs){
-                    %>
-                        <option value="<%=s%>"/>
-                    <%}
-                    %>
-                </datalist>
+            <input type="text"  id="action" value="importMaterial" hidden/>
+            <input class="textField" type="date" name="dt" id="purDt" placeholder="Date"/>
+            <select title="For branch" class="textField" id="purBr"><option>Select Production Branch</option>
+                <c:forEach items="${branch}" var="b">
+                    <option value="${b.getBrId()}">${brr.getBrName()}</option>
+                </c:forEach>
+
+            </select>
+            <input class="textField" type="text" id="vend"  name="vend" list="rmSel" placeholder="Vendor" autocomplete='off'/><br>
+                
             
             <!--<input class="textField" type="number" id="amt"  name="amt" placeholder="Total Amount"/>-->
 <!--            <input class="textField igst" type="text" id="itax"  name="igst" placeholder="IGST amount"/>

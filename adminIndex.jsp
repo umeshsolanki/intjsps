@@ -4,16 +4,6 @@
     Author     : UMESH-ADMIN
 --%>
 
-<%@page import="org.hibernate.criterion.Order"%>
-<%@page import="utils.UT"%>
-<%@page import="entities.Modules"%>
-<%@page import="entities.ActivityTracer"%>
-<%@page import="org.hibernate.criterion.Restrictions"%>
-<%@page import="entities.Admins.ROLE"%>
-<%@page import="entities.Admins"%>
-<%@page import="entities.StockManager"%>
-<%@page import="java.util.List"%>
-<%@page import="org.hibernate.Session"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div>

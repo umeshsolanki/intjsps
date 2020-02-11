@@ -4,14 +4,9 @@
     Author     : UMESH-ADMIN
 --%>
 
-<%@page import="java.util.Date"%>
-<%@page import="utils.Utils"%>
-<%@page import="utils.UT"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%--
-    return ;
---%>
+
 <div class="loginForm" style="background-color: #888" id="newPurchase" ng-controller="newPurchaseController as pc">  
     <span class="close fa fa-close" id="close" onclick="clrLSP()"></span>
     <div class="white popupHead centAlText" id="head"><h2 class="nomargin nopadding centAlText">New Purchase Bill</h2></div><br><br><hr>
